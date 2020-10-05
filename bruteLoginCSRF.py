@@ -5,7 +5,7 @@ import requests
 #from __future__ import print_function
 
 def open_ressources(file_path):
-  return item.replace("\n", "") for item in open(file_path).readlines()]
+  return [item.replace("\n", "") for item in open(file_path).readlines()]
   
 host = raw_input("Enter host to bruteforce: ")
 login_url = 'http://' + host + '/admin/login'     //CHANGE THIS IF NECESARY
